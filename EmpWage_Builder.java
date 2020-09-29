@@ -27,6 +27,11 @@ public class EmpWage_Builder implements IComputeEmpWage {
 		}
 	}
 	
+	@Override
+	public int getTotalWage(String company) {
+		return companyToEmpWageMap.get(company).totalEmpWage;
+	}
+	
 	private int computeEmpWage(CompanyEmpWage companyEmpWage){
 		//Variables
 		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
@@ -56,5 +61,6 @@ public class EmpWage_Builder implements IComputeEmpWage {
 		empWageBuilder.addCompanyEmpWage("DMart", 20, 2, 10);
 		empWageBuilder.addCompanyEmpWage("Reliance", 10, 4, 20);
 		empWageBuilder.computeEmpWage();
+		System.out.println("Total Wage for DMart Company: " + empWageBuilder.getTotalWage("DMart"));
 	}
 }
