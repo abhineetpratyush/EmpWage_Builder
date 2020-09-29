@@ -46,7 +46,7 @@ public class EmpWage_Builder implements IComputeEmpWage {
 	}
 
 	public static void main(String[] args){
-		EmpWage_Builder empWageBuilder = new EmpWage_Builder();
+		IComputeEmpWage empWageBuilder = new EmpWage_Builder();
 		empWageBuilder.addCompanyEmpWage("DMart", 20, 2, 10);
 		empWageBuilder.addCompanyEmpWage("Reliance", 10, 4, 20);
 		empWageBuilder.computeEmpWage();
