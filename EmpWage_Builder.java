@@ -4,16 +4,19 @@ public class EmpWage_Builder implements IComputeEmpWage {
 	//Constants
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
-
+	
 	private ArrayList<CompanyEmpWage> companyEmpWageArrayList;
+	private Map<String, CompanyEmpWage> companyToEmpWageMap;
 
 	public EmpWage_Builder(){ //constructor
-		companyEmpWageArrayList = new ArrayList<>(); //using arraylist instead of array
+		companyEmpWageArrayList = new ArrayList<>();
+		companyToEmpWageMap = new HashMap<>();
 	}
 	
 	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth){
 		CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
 		companyEmpWageArrayList.add(companyEmpWage);
+		companyToEmpWageMap.put(company, companyEmpWage); //creating association to a key 
 	}
 
 	public void computeEmpWage(){
